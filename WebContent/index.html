@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Aplicación CRUD utilizando servlets</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<ul class="nav nav-tabs">
+	  <li class="nav-item">
+	    <a class="nav-link active" href="#">Agregar alumno</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="ViewServlet">Ver lista de alumnos</a>
+	  </li>
+	</ul>
+	<div class="container" style="padding-top: 20px;">
+	<h2>Agregar nuevo alumno</h2>
+	<form action="SaveServlet" method="post" style="margin-top:20px;">
+		<table>
+			<tr>
+				<td>No. Control:</td>
+				<td><input type="text" name="no_control" class="form-control" required /></td>
+			</tr>
+			<tr>
+				<td>Nombre:</td>
+				<td><input type="text" name="nombre" class="form-control" required/></td>
+			</tr>
+			<tr>
+				<td>Curso:</td>
+				<td>
+					<select name="curso" class="form-control">
+						<option value="CO">Ordinario</option>
+						<option value="CR">Repetición</option>
+						<option value="CE">Especial</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Semestre:</td>
+				<td><input type="number" name="semestre" class="form-control" required/></td>
+			</tr>
+			<tr><td colspan="2" style="text-align: center;"><input type="submit" class="btn btn-success" value="Guardar"/></td></tr>
+		</table>
+	</form>
+	<br/>  
+	
+	</div>
+	
+</body>
+</html>
