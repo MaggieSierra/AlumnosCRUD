@@ -1,6 +1,7 @@
 package Usuarios;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,12 +30,22 @@ public class LogoutServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 response.setContentType("text/html");  
-           
-         Cookie ck=new Cookie("name","");  
-         ck.setMaxAge(0);  
-         response.addCookie(ck);  
-         
-         request.getRequestDispatcher("login.html").include(request, response); 
+	     PrintWriter out=response.getWriter();   
+	     
+		 Cookie cks[] = request.getCookies();
+			if (cks != null) {
+				String name = cks[0].getValue();
+				if (!name.equals("") || name != null) {
+			        Cookie ck=new Cookie("name","");  
+			        ck.setMaxAge(0); 
+			        response.addCookie(ck);  
+			          
+			        out.print("Has cerrado sesión exitosamente!");
+				}
+			} else {
+				request.getRequestDispatcher("login.html").include(request, response);
+			}
+			out.close();
 	}
 
 	

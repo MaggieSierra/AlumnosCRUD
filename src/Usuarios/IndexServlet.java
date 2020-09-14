@@ -37,10 +37,9 @@ public class IndexServlet extends HttpServlet {
 		if (ck != null) {
 			String name = ck[0].getValue();
 			if (!name.equals("") || name != null) {
-				response.sendRedirect("index.html"); //logged-in page
+				
 			}
 		} else {
-			out.print("Please login first");
 			request.getRequestDispatcher("login.html").include(request, response);
 		}
 		out.close();
