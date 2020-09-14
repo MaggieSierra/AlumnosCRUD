@@ -39,8 +39,8 @@ public class LogoutServlet extends HttpServlet {
 			        Cookie ck=new Cookie("name","");  
 			        ck.setMaxAge(0); 
 			        response.addCookie(ck);  
-			          
 			        out.print("Has cerrado sesión exitosamente!");
+			        response.sendRedirect("login.html");
 				}
 			} else {
 				request.getRequestDispatcher("login.html").include(request, response);
