@@ -13,6 +13,14 @@
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
   <servlet>  
+    <servlet-name>IndexServlet</servlet-name>  
+    <servlet-class>Usuarios.IndexServlet</servlet-class>  
+  </servlet> 
+  <servlet-mapping>
+    <servlet-name>IndexServlet</servlet-name>
+    <url-pattern>/index.html</url-pattern>
+  </servlet-mapping>
+  <servlet>  
     <servlet-name>LogoutServlet</servlet-name>  
     <servlet-class>Usuarios.LogoutServlet</servlet-class>  
   </servlet>
