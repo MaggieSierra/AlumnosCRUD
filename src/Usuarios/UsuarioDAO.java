@@ -1,8 +1,8 @@
 package Usuarios;
 
-import listaAlumnos.Conexion;
-
 import java.sql.*;
+
+import listaAlumnos.Conexion;
 
 public class UsuarioDAO {
 	static ResultSet rs = null;

@@ -5,10 +5,11 @@ import java.io.PrintWriter;
   
 import javax.servlet.ServletException;  
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
+//import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;  
 import javax.servlet.http.HttpServletRequest;  
-import javax.servlet.http.HttpServletResponse;  
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;  
 @WebServlet("/EditServlet2")  
 public class EditServlet2 extends HttpServlet {  
 	private static final long serialVersionUID = 1L;
@@ -17,9 +18,13 @@ public class EditServlet2 extends HttpServlet {
         response.setContentType("text/html");  
         PrintWriter out=response.getWriter();  
         
-        Cookie ck[]=request.getCookies();  
-	    if(ck!=null){  
-	    	String name=ck[0].getValue();  
+        //Cookie ck[]=request.getCookies();  
+        HttpSession session=request.getSession(false);  
+
+	    if(session!=null){  
+	    	//String name=ck[0].getValue();  
+	    	String name=(String)session.getAttribute("name");
+
 	        if(!name.equals("")||name!=null){ 
 	        	int id = Integer.parseInt(request.getParameter("id")); 
 	            String no_control = request.getParameter("no_control");  

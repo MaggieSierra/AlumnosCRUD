@@ -5,10 +5,11 @@ import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
+//import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LogoutServlet
@@ -32,7 +33,7 @@ public class LogoutServlet extends HttpServlet {
 		 response.setContentType("text/html");  
 	     PrintWriter out=response.getWriter();   
 	     
-		 Cookie cks[] = request.getCookies();
+		 /*Cookie cks[] = request.getCookies();
 			if (cks != null) {
 				String name = cks[0].getValue();
 				if (!name.equals("") || name != null) {
@@ -44,8 +45,11 @@ public class LogoutServlet extends HttpServlet {
 				}
 			} else {
 				request.getRequestDispatcher("login.html").include(request, response);
-			}
-			out.close();
+			}*/
+	     HttpSession session=request.getSession();  
+         session.invalidate();
+         response.sendRedirect("login.html");
+         out.close();
 	}
 
 	

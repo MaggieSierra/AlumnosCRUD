@@ -7,6 +7,11 @@ public class Alumno {
 	private String curso;
 	private int semestre;
 	
+	public Alumno() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 	public int getId() {
 		return id;
 	}

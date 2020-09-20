@@ -5,10 +5,11 @@ import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
+//import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet("/EditServlet")
@@ -23,9 +24,12 @@ public class EditServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");  
         PrintWriter out = response.getWriter(); 
-        Cookie ck[]=request.getCookies();  
-	    if(ck!=null){  
-	    	String name=ck[0].getValue();  
+        //Cookie ck[]=request.getCookies();  
+        HttpSession session=request.getSession(false);  
+
+	    if(session!=null){  
+	    	//String name=ck[0].getValue();  
+	    	String name=(String)session.getAttribute("name");
 	        if(!name.equals("")||name!=null){
 	        	out.print("<html><head><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\"></head>");
 	            out.print("<ul class='nav nav-tabs'><li class='nav-item'>"
